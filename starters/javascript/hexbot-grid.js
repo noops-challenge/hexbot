@@ -45,7 +45,7 @@ function draw() {
   //get the data!
   NOOPBOT_FETCH({
     API: 'hexbot',
-    count: 1000
+    count: 500
   }, drawSet);
 }
 
