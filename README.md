@@ -159,4 +159,6 @@ Implement that function in your code to generate millions of colors.
 
 For manipulating colors, we're using [Color](https://github.com/Qix-/color), which allows you to change `R`, `G`, and `B` values and mix colors together. Give it a try! 🌈
 
+Bonus: have you written your own implementation of a hex code generator? If you can do it in less than 256 characters, submit it in our [Golfbot challenge](https://github.com/noops-challenge/golfbot)
+
 More about Hexbot here: https://noopschallenge.com/challenges/hexbot
