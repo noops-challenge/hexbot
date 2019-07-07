@@ -1,0 +1,8 @@
+GET /hexbot
+{
+  "colors": [
+    {"value": "#52a351"}
+  ]
+}
+GET /hexbot?count=1000&width=500&height=500&seed=FF7F50,FFD700,FF8C00
+
