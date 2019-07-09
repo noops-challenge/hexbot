@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+.red-box {
+  margin-left: 20%;
+  margin-top: 20%;
+  /* background-color: red; */
+  width: auto;
+  height: 100%;
+}
