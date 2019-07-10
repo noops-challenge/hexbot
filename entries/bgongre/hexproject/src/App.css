@@ -1,11 +1,36 @@
+body {
+  background-color: rgb(44, 44, 44);
+}
+
 h1 {
   text-align: center;
 }
 
-.red-box {
-  margin-left: 20%;
-  margin-top: 20%;
-  /* background-color: red; */
-  width: auto;
-  height: 100%;
+.box1, .box2 {
+  position: absolute;
+  background-color: whitesmoke;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
 }
+
+.box1 {
+  margin-left: 35%;
+  margin-top: 20%;
+}
+
+.box2 {
+  margin-left: 50%;
+  margin-top: 20%;
+}
+
+.color1, .color2 {
+  margin-top: 8%;
+  margin-left: 8%;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px rgb(44, 44, 44) solid;
+  box-shadow: 1px 3px 5px;
+}
+

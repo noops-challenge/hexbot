@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state = {
       error: null,
@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://api.noopschallenge.com/hexbot")
+    fetch("http://api.noopschallenge.com/hexbot?count=2")
       .then(res => res.json())
       .then((data) => {
         this.setState({
@@ -30,18 +30,15 @@ class App extends Component {
       )
   }
 
-  setBackground = () => {
-    const { colors } = this.state;
-    const colorValue =  colors.map((item) => {
-      return item.value;
-   })
-   document.body.style.background = `${colorValue}`;
+  hexToRGB = (hex) => {
+    let r = parseInt(hex.slice(1,3), 16),
+        g = parseInt(hex.slice(3,5), 16),
+        b = parseInt(hex.slice(5,7), 16)
+    return `rgb (${r}, ${g}, ${b})`;
   }
 
   render(){
-    const { error, isLoaded } = this.state;
-
-    this.setBackground();
+    const { error, isLoaded, colors } = this.state;
 
     if (error) {
       return <div>Error: {error.message}</div>
@@ -51,10 +48,15 @@ class App extends Component {
       return (
         <div>
           <div>
-            <h1>Welcome</h1>
+            <h1>Color Swatches</h1>
+            <div className="box1">
+              <div className="color1" style={{backgroundColor: colors[0].value}}></div>
+            </div>
+            <div className="box2">
+              <div className="color2" style={{backgroundColor: colors[1].value}}></div>
+            </div>
           </div>
         </div>
-          
       );
     }
   }
