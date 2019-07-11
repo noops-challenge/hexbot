@@ -10,16 +10,16 @@ Here are screenshots of the states of the generated button.
 
 When you first start
 
-![Screen01](C:\repos\hexbot\entries\hansknecht\Screen01.png)
+![Screen01](Screen01.png)
 
 
 
 When you mouse over
 
-![Screen2](C:\repos\hexbot\entries\hansknecht\Screen2.png)
+![Screen2](Screen2.png)
 
 
 
 After you click and Hexbot replies
 
-![Screen3](C:\repos\hexbot\entries\hansknecht\Screen3.png)
+![Screen3](Screen3.png)
