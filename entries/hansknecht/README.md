@@ -2,11 +2,7 @@
 
 Not a lot to this except to call the bot and update the color. 
 
-I'm using LINQPad with C#. 
-
-[Here]: https://github.com/hansknecht/hexbot/tree/master/entries/hansknecht	"Source Code"
-
-Here are screenshots of the states of the generated button.
+I'm using LINQPad with C#. [Source Code](https://github.com/hansknecht/hexbot/tree/master/entries/hansknecht)
 
 When you first start
 
