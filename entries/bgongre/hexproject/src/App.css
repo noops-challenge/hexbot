@@ -4,27 +4,28 @@ body {
 
 h1 {
   text-align: center;
+  margin-bottom: 10%;
 }
 
-.box1, .box2 {
-  position: absolute;
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+}
+
+.box {
   background-color: whitesmoke;
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
 
-.box1 {
-  margin-left: 35%;
-  margin-top: 20%;
-}
-
-.box2 {
-  margin-left: 50%;
-  margin-top: 20%;
-}
-
-.color1, .color2 {
+.swatch {
   margin-top: 8%;
   margin-left: 8%;
   width: 80px;
