@@ -8,13 +8,13 @@ class Drawing:
         self.color = get("http://api.noopschallenge.com/hexbot").json()['colors'][0]['value']
         random.seed(self.color)
         if not iterations:
-            self.iterations = random.randint(25,150)
+            self.iterations = random.randint(25,75)
         if not startSize:
             self.startSize = random.randint(0,50)
         if not sizeChange:
             self.sizeChange = random.randint(5,20)
         if not turnAngle:
-            self.turnAngle = random.randint(1,360)
+            self.turnAngle = random.randint(1,359)
         if not sides and not angles:
             sides = random.randint(3,6)
         if not angles:
