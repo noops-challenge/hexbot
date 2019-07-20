@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import { ColorSwatches } from './components/color-swatches';
+import './containers/App.css';
 
 class App extends Component {
   constructor(props){
@@ -10,8 +11,14 @@ class App extends Component {
       isLoaded: false,
       colors: [],
       values: [],
-      hex: ''
+      hex: '',
+      rgb: ''
     }
+
+    this.handleClick = this.handleClick.bind(this);
+    this.rndHexValue = this.rndHexValue.bind(this);
+    this.hexValuesToArr = this.hexValuesToArr.bind(this);
+    this.hexToRGB = this.hexToRGB.bind(this);
   }
 
   componentDidMount() {
@@ -32,42 +39,37 @@ class App extends Component {
       )
   }
 
-  hexValuesToArr = () => {
+  hexValuesToArr() {
     const { colors, values } = this.state;
     colors.forEach((item) =>{
       let val = item.value;
       values.push(val);
-    })
-    console.log(values);
+    });
   }
 
-  getRandomHexValue = () => {
+  rndHexValue() {
     const { values } = this.state;
-    let hex = values[Math.floor(Math.random() * values.length)];
-    console.log(hex);
+    const val = values[Math.floor(Math.random() * values.length)];
+    this.setState({ hex: val });
   }
 
-  hexToRGB = () => {
+  hexToRGB() {
     const { hex } = this.state;
-    let r = 0, g = 0, b = 0;
+    let r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
     
-    if (hex.length === 7){
-      r = `0x${hex[1]}${hex[2]}`;
-      g = `0x${hex[3]}${hex[4]}`;
-      b = `0x${hex[5]}${hex[6]}`;
+    this.setState({ rgb: `rgb(${r},${g},${b})`});
+  }
+
+  handleClick(e) {
+    if (e.target.style.backgroundColor) {
+      console.log(e.target.style.backgroundColor);
     }
-    
-    console.log(`rgb(${r}, ${g}, ${b})`);
-    console.log(hex);
-    return `rgb(${r}, ${g}, ${b})`;
   }
 
   render(){
     const { error, isLoaded, colors } = this.state;
-
-    this.hexValuesToArr();
-    this.getRandomHexValue();
-    // this.hexToRGB();
 
     if (error) {
       return <div>Error: {error.message}</div>
@@ -78,28 +80,16 @@ class App extends Component {
         <div>
           <div>
             <h1>Color Game</h1>
-            <div className="flex-container">
-              <div className="container">
-                <div className="box box1">
-                  <div className="swatch" style={{backgroundColor: colors[0].value}}></div>
-                </div>
-                <div className="box box2">
-                  <div className="swatch" style={{backgroundColor: colors[1].value}}></div>
-                </div>
-                <div className="box box3">
-                  <div className="swatch" style={{backgroundColor: colors[2].value}}></div>
-                </div>
-                <div className="box box4">
-                  <div className="swatch" style={{backgroundColor: colors[3].value}}></div>
-                </div>
-                <div className="box box5">
-                  <div className="swatch" style={{backgroundColor: colors[4].value}}></div>
-                </div>
-                <div className="box box6">
-                  <div className="swatch" style={{backgroundColor: colors[5].value}}></div>
-                </div>
+            <p></p>
+            <div 
+            onClick={this.handleClick}>
+            <ColorSwatches 
+              colors={colors} 
+              hexArray={this.hexValuesToArr()} 
+              setRndHex={this.rndHexValue}
+              hexToRGB={this.hexToRGB}
+              />
               </div>
-            </div>
           </div>
         </div>
       );
