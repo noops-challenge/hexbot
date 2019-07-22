@@ -25,3 +25,7 @@
     border: 2px rgb(44, 44, 44) solid;
     box-shadow: 1px 3px 5px;
   }
+
+  .win {
+    background-color: rgb(137, 219, 137);
+  }

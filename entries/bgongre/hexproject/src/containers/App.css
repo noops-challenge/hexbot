@@ -2,8 +2,19 @@ body {
   background-color: rgb(44, 44, 44);
 }
 
-h1 {
+h1, h5, p {
   text-align: center;
-  margin-bottom: 10%;
+}
+
+h5 {
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+
+p {
+  color: whitesmoke;
+  font-size: 1.2em;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
