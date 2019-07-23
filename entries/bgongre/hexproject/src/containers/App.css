@@ -2,19 +2,27 @@ body {
   background-color: rgb(44, 44, 44);
 }
 
-h1, h5, p {
+div {
   text-align: center;
 }
 
-h5 {
+h1, h5, p {
+  text-align: center;
   color: whitesmoke;
+}
+
+h5 {
   font-size: 1.5em;
 }
 
 p {
-  color: whitesmoke;
   font-size: 1.2em;
   margin-left: 20%;
   margin-right: 20%;
 }
 
+button {
+  margin-top: 5%;
+  border-radius: 5px;
+  padding: 5px;
+}

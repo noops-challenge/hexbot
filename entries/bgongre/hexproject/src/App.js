@@ -10,7 +10,8 @@ class App extends Component {
       error: null,
       isLoaded: false,
       colors: [],
-      hex: ''
+      hex: '',
+      disabled: false
     }
   }
 
@@ -21,7 +22,8 @@ class App extends Component {
         this.setState({
           isLoaded: true,
           colors: data.colors,
-          hex: this.rndHexValue(data.colors)
+          hex: this.rndHexValue(data.colors),
+          disabled: false
         })
       },
         (error) => {
@@ -46,16 +48,26 @@ class App extends Component {
     return `rgb(${r}, ${g}, ${b})`;
   }
 
-  handleClick = (e) => {
-    if (e.target.style.backgroundColor === this.hexToRGB()){
-      console.log(e.target.value)
-      let box = document.getElementsByClassName("box");
-      // for(let i = 0; i < box.length; i++){
-      //   if(e.target.style.backgroundColor === this.hexToRGB() && e.target.value === box[i]){
-      //   box[i].style.backgroundColor="rgb(137, 219, 137)";
-      //   }
-      // }
+  checkWin = (e) => {
+      if(this.state.disabled === false){
+      let swatch = document.getElementsByClassName("swatch");
+      for(let i = 0; i < swatch.length; i++){
+        if(swatch[i].style.backgroundColor === this.hexToRGB() && e.target.style.backgroundColor === this.hexToRGB()){
+          swatch[i].parentNode.style.backgroundColor="rgb(137, 219, 137)"; 
+        } else{
+          swatch[i].parentNode.style.backgroundColor="rgb(231, 97, 97)";
+        }
+        }
+      }
+      this.setState({ disabled: true });
     }
+
+  newColors = () => {
+    let box = document.getElementsByClassName("box");
+    for (let i = 0; i < box.length; i++) {
+      box[i].style.backgroundColor="whitesmoke";
+    }
+    this.componentDidMount();      
   }
 
   render(){
@@ -71,12 +83,10 @@ class App extends Component {
           <div>
             <h1>Color Game</h1>
             <h5>{this.hexToRGB()}</h5>
-            <div 
-            onClick={this.handleClick}>
-            <ColorSwatches 
-              colors={colors}
-              />
+            <div onClick={ this.checkWin}>
+              <ColorSwatches colors={ colors } />
             </div>
+            <button type="button" onClick={ this.newColors }>Play Again</button>
             <p>To play this game look at the RGB (red, green, blue) numbers above and choose which of the six blocks is the correct color.</p>
           </div>
         </div>
