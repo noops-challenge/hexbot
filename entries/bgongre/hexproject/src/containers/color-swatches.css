@@ -1,14 +1,4 @@
-.flex-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 10px;
-  }
-  
+
   .box {
     background-color: whitesmoke;
     width: 100px;

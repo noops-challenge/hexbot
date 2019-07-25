@@ -11,7 +11,9 @@ class App extends Component {
       isLoaded: false,
       colors: [],
       hex: '',
-      disabled: false
+      disabled: false,
+      showMessage: false,
+      showButton: false
     }
   }
 
@@ -23,7 +25,9 @@ class App extends Component {
           isLoaded: true,
           colors: data.colors,
           hex: this.rndHexValue(data.colors),
-          disabled: false
+          disabled: false,
+          showMessage: false,
+          showButton: false
         })
       },
         (error) => {
@@ -57,10 +61,10 @@ class App extends Component {
         } else{
           swatch[i].parentNode.style.backgroundColor="rgb(231, 97, 97)";
         }
-        }
       }
-      this.setState({ disabled: true });
     }
+    this.setState({ disabled: true });
+  }
 
   newColors = () => {
     let box = document.getElementsByClassName("box");
@@ -83,10 +87,14 @@ class App extends Component {
           <div>
             <h1>Color Game</h1>
             <h5>{this.hexToRGB()}</h5>
-            <div onClick={ this.checkWin}>
-              <ColorSwatches colors={ colors } />
+            <div className="flex-container">
+              <div className="container" onClick={ this.checkWin }>
+                <ColorSwatches colors={ colors }/>
+              </div>
             </div>
-            <button type="button" onClick={ this.newColors }>Play Again</button>
+            <div>
+              <button type="button" onClick={ this.newColors }>Play Again</button>
+            </div>
             <p>To play this game look at the RGB (red, green, blue) numbers above and choose which of the six blocks is the correct color.</p>
           </div>
         </div>
