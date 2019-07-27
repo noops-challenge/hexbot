@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ColorSwatches } from './components/color-swatches';
+import { Button } from './components/button';
 import './containers/App.css';
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
       colors: [],
       hex: '',
       disabled: false,
-      showMessage: false,
+      isWin: Boolean,
       showButton: false
     }
   }
@@ -26,7 +27,7 @@ class App extends Component {
           colors: data.colors,
           hex: this.rndHexValue(data.colors),
           disabled: false,
-          showMessage: false,
+          isWin: Boolean,
           showButton: false
         })
       },
@@ -57,25 +58,22 @@ class App extends Component {
       let swatch = document.getElementsByClassName("swatch");
       for(let i = 0; i < swatch.length; i++){
         if(swatch[i].style.backgroundColor === this.hexToRGB() && e.target.style.backgroundColor === this.hexToRGB()){
-          swatch[i].parentNode.style.backgroundColor="rgb(137, 219, 137)"; 
+          swatch[i].parentNode.style.backgroundColor="rgb(137, 219, 137)";
+          this.setState({ isWin: true });
         } else{
           swatch[i].parentNode.style.backgroundColor="rgb(231, 97, 97)";
+          this.setState({ isWin: false });
         }
       }
     }
-    this.setState({ disabled: true });
-  }
-
-  newColors = () => {
-    let box = document.getElementsByClassName("box");
-    for (let i = 0; i < box.length; i++) {
-      box[i].style.backgroundColor="whitesmoke";
-    }
-    this.componentDidMount();      
+    this.setState({ 
+      disabled: true,
+      showButton: true
+     });
   }
 
   render(){
-    const { error, isLoaded, colors } = this.state;
+    const { error, isLoaded, colors, showButton, isWin } = this.state;
 
     if (error) {
       return <div>Error: {error.message}</div>
@@ -87,14 +85,13 @@ class App extends Component {
           <div>
             <h1>Color Game</h1>
             <h5>{this.hexToRGB()}</h5>
-            <div className="flex-container">
-              <div className="container" onClick={ this.checkWin }>
-                <ColorSwatches colors={ colors }/>
+              <div onClick={ this.checkWin }>
+                <ColorSwatches colors={ colors } />
+              {(<div><p>{isWin ? (`Congratulations, You Win!`) : (`Sorry.You Lose`)}</p></div>)}
               </div>
-            </div>
-            <div>
-              <button type="button" onClick={ this.newColors }>Play Again</button>
-            </div>
+              <div>
+                { showButton ? (<Button />) : null}
+              </div>
             <p>To play this game look at the RGB (red, green, blue) numbers above and choose which of the six blocks is the correct color.</p>
           </div>
         </div>
