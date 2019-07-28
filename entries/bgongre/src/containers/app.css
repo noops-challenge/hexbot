@@ -6,7 +6,9 @@ div {
   text-align: center;
 }
 
-h1, h5, p {
+h1,
+h5,
+p {
   text-align: center;
   color: whitesmoke;
 }
@@ -19,10 +21,11 @@ p {
   font-size: 1.2em;
   margin-left: 20%;
   margin-right: 20%;
+  margin-bottom: 0%;
 }
 
 button {
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius: 5px;
   padding: 5px;
 }
@@ -36,4 +39,13 @@ button {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 10px;
+}
+
+.correct-color {
+  margin: auto;
+  margin-top: 10px;
+  height: 16px;
+  width: 16px;
+  border: 2px solid whitesmoke;
+  border-radius: 2px;
 }
