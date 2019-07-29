@@ -1,0 +1,51 @@
+body {
+  background-color: rgb(44, 44, 44);
+}
+
+div {
+  text-align: center;
+}
+
+h1,
+h5,
+p {
+  text-align: center;
+  color: whitesmoke;
+}
+
+h5 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1.2em;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 0%;
+}
+
+button {
+  margin-top: 2%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+}
+
+.correct-color {
+  margin: auto;
+  margin-top: 10px;
+  height: 16px;
+  width: 16px;
+  border: 2px solid whitesmoke;
+  border-radius: 2px;
+}
