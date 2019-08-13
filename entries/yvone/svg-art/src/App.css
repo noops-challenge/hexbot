@@ -1,0 +1,29 @@
+html {
+	background-color: #282c34;
+	color: white;
+	font-size: 24px;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.hexbot-btn {
+	background-color: #61dafb;
+	color: black;
+	border: none;
+	padding: 24px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.hexbot-btn:hover {
+	background-color: #bfad16;
+}
+
+.hexbot-btn:focus {
+    outline: #bfad16 auto 5px;
+}

@@ -1,0 +1,31 @@
+.pixel-on-canvas {
+	border: 25px solid #bfad16;
+	margin: 24px 24px 0;
+	display: flex;
+	align-items: center; 
+	justify-content: center; 
+	width: 300px;
+	height: 300px;
+}
+
+.pixel-on-canvas-tag {
+	font-size: 12px;
+	color: white;
+	margin: 12px;
+}
+
+g.svg-leaf-detail {
+	fill: #294f1a;
+}
+
+g.svg-leaves {
+	fill: #305c1e;
+}
+
+g.svg-rose-detail {
+	fill: #a30000;
+}
+
+path.svg-rose {
+	fill: #bd0000;
+}
